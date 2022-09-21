@@ -7,6 +7,8 @@ const Home = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    localStorage.setItem("userName", userName);
+    navigate("/chat");
     console.log("clicked! signed in?");
   };
 

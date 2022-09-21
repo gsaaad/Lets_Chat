@@ -1,6 +1,6 @@
 import React from "react";
 
-const ChartBar = () => {
+const ChatBar = () => {
   return (
     <div className="chat__sidebar">
       <h2>Open Chat</h2>
@@ -18,4 +18,4 @@ const ChartBar = () => {
     </div>
   );
 };
-export default ChartBar;
+export default ChatBar;

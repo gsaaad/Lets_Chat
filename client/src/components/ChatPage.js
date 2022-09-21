@@ -1,10 +1,16 @@
 import React from "react";
-
+import ChatBar from "./ChatBar";
+import ChatBody from "./ChartBody";
 const ChatPage = ({ socket }) => {
   return (
     <div className="chat">
       <p>ChatBAR</p>
-      <div className="chat__main">MAIN CHAT</div>
+      <ChatBar />
+
+      <div className="chat__main">
+        MAIN CHAT
+        <ChatBody />
+      </div>
     </div>
   );
 };

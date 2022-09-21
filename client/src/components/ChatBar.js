@@ -1,6 +1,6 @@
 import React from "react";
 
-const ChatBar = () => {
+const ChatBar = ({ socket }) => {
   return (
     <div className="chat__sidebar">
       <h2>Open Chat</h2>

@@ -12,15 +12,13 @@ const ChatBody = ({ socket, chatMessages }) => {
   };
   return (
     <>
-      {/* <div>Chart Body</div>; */}
       <header className="chat__mainHeader">
         <p>Chat with friends~</p>
         <button className="leaveChat__btn" onClick={handleLeaveChat}>
-          {" "}
           LEAVE CHAT
         </button>
       </header>
-      {/* receiving */}
+
       <div className="message__container">
         {/* <div className="message_chats">
           <p className="sender__name">You</p>
@@ -38,7 +36,9 @@ const ChatBody = ({ socket, chatMessages }) => {
         {chatMessages.map((message) =>
           message.name === localStorage.getItem("userName") ? (
             <div className="message__chats" key={message.id}>
-              <p className="sender__name">You:</p>
+              <p className="sender__name">
+                {message.name}, {localStorage.getItem("userName")}
+              </p>
               <div className="message__sender">
                 <p>{message.text}</p>
               </div>

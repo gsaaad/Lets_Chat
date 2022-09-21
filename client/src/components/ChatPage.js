@@ -4,11 +4,11 @@ import ChatBody from "./ChartBody";
 const ChatPage = ({ socket }) => {
   return (
     <div className="chat">
-      <p>ChatBAR</p>
+      {/* <p>ChatBAR</p> */}
       <ChatBar />
 
       <div className="chat__main">
-        MAIN CHAT
+        {/* <p>MAIN CHAT</p> */}
         <ChatBody />
       </div>
     </div>

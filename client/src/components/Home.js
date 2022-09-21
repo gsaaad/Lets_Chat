@@ -6,10 +6,10 @@ const Home = () => {
   const [userName, setUserName] = useState("");
 
   const handleSubmit = (e) => {
+    // set username in localstorage, and go to chat component
     e.preventDefault();
     localStorage.setItem("userName", userName);
     navigate("/chat");
-    console.log("clicked! signed in?");
   };
 
   return (

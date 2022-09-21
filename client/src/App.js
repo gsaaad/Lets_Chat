@@ -10,7 +10,6 @@ function App() {
   return (
     <BrowserRouter>
       <div>
-        <p>Hello World!</p>
         <Routes>
           <Route path="/" element={<Home socket={socket} />}></Route>
           <Route path="/chat" element={<ChatPage socket={socket} />}></Route>

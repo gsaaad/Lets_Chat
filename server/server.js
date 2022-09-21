@@ -17,6 +17,12 @@ const socketIO = require("socket.io")(http, {
 // socket generates unique ID for each socket, when user visits website
 socketIO.on("connection", (socket) => {
   console.log(`⚡: ${socket.id} user just connected!`);
+
+  // listen for message, get data (username, id, text)
+  socket.on("message", (data) => {
+    console.log("User interaction sending data", data);
+    socketIO.emit("messageResponse", data);
+  });
   socket.on("disconnect", () => {
     console.log(`🔥: A user disconnected: ${socket.id}`);
   });

@@ -4,12 +4,21 @@ import { useNavigate } from "react-router-dom";
 const ChatBody = () => {
   const navigate = useNavigate();
 
+  const handleLeaveChat = () => {
+    // leave chat = home page, remove username
+    localStorage.removeItem("userName");
+    navigate("/");
+    window.location.reload();
+  };
   return (
     <>
       {/* <div>Chart Body</div>; */}
       <header className="chat__mainHeader">
         <p>Chat with friends~</p>
-        <button className="leaveChat__btn"> LEAVE CHAT</button>
+        <button className="leaveChat__btn" onClick={handleLeaveChat}>
+          {" "}
+          LEAVE CHAT
+        </button>
       </header>
       {/* receiving */}
       <div className="message__container">

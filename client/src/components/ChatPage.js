@@ -3,6 +3,7 @@ import ChatBar from "./ChatBar";
 import ChatBody from "./ChartBody";
 import ChatFooter from "./ChatFooter";
 
+// prop drilling socket(user.id) to footer!
 const ChatPage = ({ socket }) => {
   return (
     <div className="chat">
@@ -12,7 +13,7 @@ const ChatPage = ({ socket }) => {
       <div className="chat__main">
         {/* <p>MAIN CHAT</p> */}
         <ChatBody />
-        <ChatFooter />
+        <ChatFooter socket={socket} />
       </div>
     </div>
   );

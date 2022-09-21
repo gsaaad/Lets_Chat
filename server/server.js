@@ -7,6 +7,8 @@ const cors = require("cors");
 
 // PORT
 const PORT = 3001;
+// list of users
+let users = [];
 // socket IO
 const socketIO = require("socket.io")(http, {
   cors: {
@@ -23,8 +25,17 @@ socketIO.on("connection", (socket) => {
     console.log("User interaction sending data", data);
     socketIO.emit("messageResponse", data);
   });
+  socket.on("newUser", (data) => {
+    users.push(data);
+    socketIO.emit("newUserResponse", users);
+  });
   socket.on("disconnect", () => {
     console.log(`🔥: A user disconnected: ${socket.id}`);
+    users = users.filter((user) => {
+      user.socketID !== socket.id;
+    });
+    socketIO.emit("newUserResponse", users);
+    socket.disconnect();
   });
 });
 

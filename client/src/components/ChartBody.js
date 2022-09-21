@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const ChatBody = ({ socket, chatMessages }) => {
+const ChatBody = ({ socket, chatMessages, lastMessageRef }) => {
   const navigate = useNavigate();
 
   const handleLeaveChat = () => {
@@ -41,6 +41,7 @@ const ChatBody = ({ socket, chatMessages }) => {
               </p>
               <div className="message__sender">
                 <p>{message.text}</p>
+                <div ref={lastMessageRef} />
               </div>
             </div>
           ) : (

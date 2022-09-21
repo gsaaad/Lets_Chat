@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Home = () => {
+const Home = ({ socket }) => {
   const navigate = useNavigate();
   const [userName, setUserName] = useState("");
 
@@ -9,6 +9,7 @@ const Home = () => {
     // set username in localstorage, and go to chat component
     e.preventDefault();
     localStorage.setItem("userName", userName);
+    socket.emit("newUser", { userName, socketID: socket.id });
     navigate("/chat");
   };
 

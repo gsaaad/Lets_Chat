@@ -19,6 +19,11 @@ const ChatPage = ({ socket }) => {
   useEffect(() => {
     lastMessageRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [chatMessages]);
+  useEffect(() => {
+    socket.on("typingResponse", (data) => {
+      setTypingStatus(data);
+    });
+  }, [socket]);
   return (
     <div className="chat">
       {/* <p>ChatBAR</p> */}
@@ -28,6 +33,7 @@ const ChatPage = ({ socket }) => {
         {/* <p>MAIN CHAT</p> */}
         <ChatBody
           socket={socket}
+          typingStatus={typingStatus}
           chatMessages={chatMessages}
           lastMessageRef={lastMessageRef}
         />

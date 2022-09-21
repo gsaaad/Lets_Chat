@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const ChatBody = ({ socket, chatMessages, lastMessageRef }) => {
+const ChatBody = ({ socket, chatMessages, lastMessageRef, typingStatus }) => {
   const navigate = useNavigate();
 
   const handleLeaveChat = () => {
@@ -56,7 +56,7 @@ const ChatBody = ({ socket, chatMessages, lastMessageRef }) => {
       </div>
       {/* when a user is typing */}
       <div className="message_status">
-        <p>User is typing...</p>
+        <p>{typingStatus}</p>
       </div>
     </>
   );

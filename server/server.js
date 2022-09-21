@@ -1,17 +1,16 @@
 const express = require("express");
-const cors = require("cors");
 
 // app express
 const app = express();
 const http = require("http").Server(app);
+const cors = require("cors");
 
 // PORT
 const PORT = 3001;
 // socket IO
 const socketIO = require("socket.io")(http, {
-  // REACT CONNECTION
   cors: {
-    origin: `http://localhost:3000`,
+    origin: "http://localhost:3000",
   },
 });
 
@@ -29,6 +28,6 @@ app.get("/", (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
+http.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });

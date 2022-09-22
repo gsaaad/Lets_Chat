@@ -36,9 +36,7 @@ const ChatBody = ({ socket, chatMessages, lastMessageRef, typingStatus }) => {
         {chatMessages.map((message) =>
           message.name === localStorage.getItem("userName") ? (
             <div className="message__chats" key={message.id}>
-              <p className="sender__name">
-                {message.name}, {localStorage.getItem("userName")}
-              </p>
+              <p className="sender__name">{message.name}</p>
               <div className="message__sender">
                 <p>{message.text}</p>
                 <div ref={lastMessageRef} />
